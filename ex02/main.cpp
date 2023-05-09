@@ -10,15 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include <iostream>
 
 int	main(void)
 {
-	int N = 10;
+	std::string string = "HI THIS IS BRAIN";
+	std::string* stringPTR = &string;
+	std::string& stringREF = string;
 
-	Zombie* horde = zombieHorde(N, "Jorginho");
-	for (int i  = 0; i < N; i++)
-		horde[i].announce();
-	delete[] horde;
+	std::cout << "address              = " << &string << std::endl;
+	std::cout << "address held by ptr  = " << stringPTR << std::endl;
+	std::cout << "address held by ref  = " << &stringREF << "\n\n";
+
+	std::cout << "value                = " << string << std::endl;
+	std::cout << "value pointed by PTR = " << *stringPTR << std::endl;
+	std::cout << "value pointed by REF = " << stringREF << std::endl;
+
+
 	return (0);
+
 }
