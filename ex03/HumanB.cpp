@@ -19,15 +19,15 @@ void	HumanB::setName(std::string name)
 	this->name = name;
 }
 
-void	HumanB::setWeapon(Weapon& weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	this->weapon = weapon;
+	this->weapon = &weapon;
 }
 
 HumanB::HumanB(std::string name)
 {
 	this->setName(name);
-	this->setWeapon(NULL);
+	//this->setWeapon(0);
 }
 
 void HumanB::attack(void)
