@@ -17,6 +17,9 @@ CC = c++
 C_FLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp \
+	Weapon.cpp \
+	HumanA.cpp \
+	HumanB.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -32,5 +35,8 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+run: re
+	valgrind ./ex03
 
 .SILENT:
