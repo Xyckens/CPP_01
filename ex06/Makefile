@@ -10,14 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex05
+NAME = harlFilter
 
 CC = c++
 
 C_FLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp \
-	Harl.cpp \
+	Harl.cpp
+	
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -33,5 +34,6 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
 
 .SILENT:
