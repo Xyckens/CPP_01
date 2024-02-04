@@ -18,5 +18,9 @@ int	main(void)
 	heap->announce();
 	randomChump("tom");
 	delete heap;
+
+	std::cout << "additional test:\n";
+	Zombie novo;
+	novo.announce();
 	return (0);
 }

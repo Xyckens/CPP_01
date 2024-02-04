@@ -15,42 +15,28 @@
 int	main(int argc, char **argv)
 {
 	Harl	harl;
-	int		i;
 	
-	std::string level(argv[1]);
-	if (level == "DEBUG")
-		i = 1;
-	else if (level == "INFO")
-		i = 2;
-	else if (level == "WARNING")
-		i = 3;
-	else if (level == "ERROR")
-		i = 4;
-	else
-		i = 6;
 	if (argc != 2)
 		return (0);
-	switch(i)
-	{
-		case 1:
-			harl.complain("DEBUG");
-			harl.complain("INFO");
-			harl.complain("WARNING");
-			harl.complain("ERROR");
-			break ;
-		case 2:
-			harl.complain("INFO");
-			harl.complain("WARNING");
-			harl.complain("ERROR");
-			break ;
-		case 3:
-			harl.complain("WARNING");
-			harl.complain("ERROR");
-			break ;
-		case 4:
-			harl.complain("ERROR");
-			break ;
-		default:
+	std::string level(argv[1]);
+	int a = 4;
+    std::string	complaints[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    for(int i = 0; i < 4; i++)
+    {
+        if(level == complaints[i])
+           a = i;
+    }
+    switch(a){
+        case 0:
+            harl.complain("DEBUG");
+        case 1:
+            harl.complain("INFO");
+        case 2:
+            harl.complain("WARNING");
+        case 3:
+            harl.complain("ERROR");
+            break;
+        default:
 			std::cout << "[ Probably complaining about insignificant problems ]\n";
 
 	}

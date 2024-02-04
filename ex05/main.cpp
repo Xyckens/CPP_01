@@ -15,6 +15,15 @@
 int	main(void)
 {
 	Harl	harl;
-	harl.complain("DEBUG");
+	//harl.complain("DEBUG");
+	//harl.complain("ERROR");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+
+	std::cout << "\nWrong answers:\n\n";
+	harl.complain("WARNINGDSAD");
+	harl.complain("error");
+	harl.complain("");
+
 	return (0);
 }

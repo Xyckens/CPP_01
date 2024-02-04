@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-# include "Weapon.hpp"
+#include "Weapon.hpp"
 
 
 void	HumanB::setName(std::string name)
@@ -27,13 +27,13 @@ void	HumanB::setWeapon(Weapon &weapon)
 HumanB::HumanB(std::string name)
 {
 	this->setName(name);
-	//this->setWeapon(0);
 }
 
 void HumanB::attack(void)
 {
 	std::cout << HumanB::name << " attacks with their ";
-	std::cout  << this->weapon->getType() << std::endl;
+	if(this->weapon)
+		std::cout  << this->weapon->getType() << std::endl;
 }
 HumanB::~HumanB()
 {

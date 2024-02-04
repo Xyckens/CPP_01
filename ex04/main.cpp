@@ -22,26 +22,41 @@ int	main(int argc, char **argv)
 	std::string filename(argv[1]);
 	std::ifstream read(filename.c_str());
 	if (!read.is_open())
+	{
+		std::cout << "Again don't\n";
 		return (1);
+	}
 	
 	std::string	temp;
 	std::string	joined;
 	size_t	found = 0;
 	std::ofstream replace;
+	size_t	max = 0;
 	while(read.good())
 	{
 		getline(read, temp);
 		joined.append(temp);
+		if (!read.eof() && !read.fail())
+			joined.append("\n");
 	}
-	while(found != std::string::npos)
+	if (argv[2][0] != '\0')
 	{
-		found = joined.find(argv[2], found + 1);
-		if (found != std::string::npos)
+		max = joined.length();
+		while(found < max)
 		{
-			joined.erase(found, std::strlen(argv[2]));
-			joined.insert(found, argv[3]);
+			found = joined.find(argv[2], found);
+			if (found > max)
+				break ;
+			if (found < max)
+			{
+				joined.erase(found, std::strlen(argv[2]));
+				joined.insert(found, argv[3]);
+			}
+			found += std::strlen(argv[3] + 1);
 		}
 	}
+	else
+		joined.append(argv[3]);
 	filename.append(".replace");
 	replace.open(filename.c_str());
 	replace << joined;

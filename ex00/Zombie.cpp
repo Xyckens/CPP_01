@@ -22,7 +22,21 @@ void	Zombie::setName(std::string name)
 	this->name = name;
 }
 
+Zombie::Zombie(void)
+{
+	std::cout << "Zombie was created.\n";
+}
+
+Zombie::Zombie(std::string name)
+{
+	setName(name);
+	std::cout << this->name << " created.\n";
+}
+
 Zombie::~Zombie(void)
 {
-	std::cout << Zombie::name << " exterminated.\n";
+	if (!this->name.empty())
+		std::cout << Zombie::name << " exterminated.\n";
+	else
+		std::cout << "No name zombie exterminated.\n";
 }
